@@ -24,18 +24,14 @@ public class RegisterActivity extends AppCompatActivity {
         repeatPassword = findViewById(R.id.register_repeat_password);
     }
     
-    public void register(View view){
+    public void register(View view) {
         String inputPassword = password.getText().toString();
         String inputRepeatPassword = repeatPassword.getText().toString();
-        
-        if(inputPassword.equals(inputRepeatPassword)){
-            Intent intent = new Intent(this,MainActivity.class);
+
+        if (inputPassword.equals(inputRepeatPassword)) {
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             Toast.makeText(this, "You have successfully registered!", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void amar(){
-
     }
 }

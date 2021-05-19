@@ -8,8 +8,15 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.lang.reflect.Array;
+import java.text.DateFormatSymbols;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -67,5 +74,11 @@ public class MainActivity extends AppCompatActivity {
         viewPageAdapter.addFragment(new PlaylistsFragment());
         viewPageAdapter.addFragment(new DiscoverFragment());
         viewPager.setAdapter(viewPageAdapter);
+    }
+
+    private List<Playlists> getPlaylists(){
+        List<Playlists> playlistsList = new ArrayList<>();
+        playlistsList.add(new Playlists(R.drawable.playlist1, "Playlist1", "Jazz"));
+        return playlistsList;
     }
 }
