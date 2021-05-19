@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    public void yo(){
+    public void amar(){
 
     }
 }
