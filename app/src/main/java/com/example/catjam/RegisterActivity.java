@@ -34,4 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "You have successfully registered!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void yo(){
+
+    }
 }
