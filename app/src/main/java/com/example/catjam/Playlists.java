@@ -1,18 +1,30 @@
 package com.example.catjam;
 
+import java.util.ArrayList;
+
 public class Playlists {
     private int imageResId;
     private String title;
     private String description;
+    private ArrayList<Song> songs;
 
-    public Playlists(int imageResId, String title, String description) {
+    public Playlists(int imageResId, String title, String description, ArrayList<Song> songs) {
         this.imageResId = imageResId;
         this.title = title;
         this.description = description;
+        this.songs = songs;
     }
 
     public Playlists() {
 
+    }
+
+    public ArrayList<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(ArrayList<Song> songs) {
+        this.songs = songs;
     }
 
     public int getImageResId() {

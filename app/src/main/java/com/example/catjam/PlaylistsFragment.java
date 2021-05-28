@@ -20,11 +20,11 @@ import java.util.List;
 
 public class PlaylistsFragment extends Fragment {
     private ListView listView;
-    String[] months;
     List<Playlists> playlists;
     public static final String EXTRA_IMAGE = "EXTRA_IMAGE";
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
     public static final String EXTRA_DESCRIPTION = "EXTRA_DESCRIPTION";
+    public static final String EXTRA_SONGS_ARRAY_LIST = "EXTRA_SONGS_ARRAY_LIST";
     // TODO: 27. 5. 2021. Add song array for playlists
 
     @Nullable
@@ -45,6 +45,10 @@ public class PlaylistsFragment extends Fragment {
                 intent.putExtra(EXTRA_IMAGE, playlists.getImageResId());
                 intent.putExtra(EXTRA_TITLE, playlists.getTitle());
                 intent.putExtra(EXTRA_DESCRIPTION, playlists.getDescription());
+
+                // TODO: make it possible to pass this thing here
+                //intent.putExtra(EXTRA_SONGS_ARRAY_LIST, playlists.getSongs());
+
                 // TODO: 27. 5. 2021. put song array into intent here
                 startActivity(intent);
 
@@ -59,11 +63,11 @@ public class PlaylistsFragment extends Fragment {
 
     private List<Playlists> getPlaylists(){
         List<Playlists> playlistsList = new ArrayList<>();
-        playlistsList.add(new Playlists(R.drawable.playlist1, "Playlist1", "Jazz"));
+        ArrayList<Song> songs = new ArrayList<Song>();
 
-        playlistsList.add(new Playlists(R.drawable.playlist1, "Playlist2", "Chill"));
-
-        playlistsList.add(new Playlists(R.drawable.playlist3, "Playlist3", "Top50"));
+        playlistsList.add(new Playlists(R.drawable.playlist1, "Playlist1", "Jazz", songs));
+        playlistsList.add(new Playlists(R.drawable.playlist1, "Playlist2", "Chill", songs));
+        playlistsList.add(new Playlists(R.drawable.playlist3, "Playlist3", "Top50", songs));
 
         return playlistsList;
     }

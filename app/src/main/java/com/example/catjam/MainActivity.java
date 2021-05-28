@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Playlists> getPlaylists(){
         List<Playlists> playlistsList = new ArrayList<>();
-        playlistsList.add(new Playlists(R.drawable.playlist1, "Playlist1", "Jazz"));
+        ArrayList<Song> songs = new ArrayList<Song>();
+        playlistsList.add(new Playlists(R.drawable.playlist1, "Playlist1", "Jazz", songs));
         return playlistsList;
     }
 }
