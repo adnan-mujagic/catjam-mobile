@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlaylistsDetails extends AppCompatActivity {
+    public static final String EXTRA_COVER = "EXTRA_COVER";
+    public static final String EXTRA_SONG_NAME = "EXTRA_SONG_NAME";
+    public static final String EXTRA_ARTIST_NAME = "EXTRA_ARTIST_NAME";
+
     ImageView playlistImage;
     TextView playlistTitle, playlistDescription;
     ListView listView;
@@ -37,20 +41,22 @@ public class PlaylistsDetails extends AppCompatActivity {
             SongListViewAdapter songListViewAdapter = new SongListViewAdapter(getSongs(), getBaseContext());
             listView.setAdapter(songListViewAdapter);
 
-            // TODO: make this item Click listener when clicked on a song
-            /*
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Song song = (Song) parent.getItemAtPosition(position);
-                    Intent intent = new Intent(getActivity(), SongDetails.class);
+                    Intent intent = new Intent(getBaseContext(), SongDetails.class);
 
+
+                    intent.putExtra(EXTRA_COVER, song.getImageResId());
+                    intent.putExtra(EXTRA_SONG_NAME, song.getName());
+                    intent.putExtra(EXTRA_ARTIST_NAME, song.getArtist());
 
                     // TODO: 27. 5. 2021. put song array into intent here
                     startActivity(intent);
                 }
-            })
-            */
+            });
+
         }
     }
 
