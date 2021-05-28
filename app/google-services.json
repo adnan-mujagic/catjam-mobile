@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "265998737860",
+    "project_id": "catjam-5dcd8",
+    "storage_bucket": "catjam-5dcd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265998737860:android:1346193e8520dfb8a14491",
+        "android_client_info": {
+          "package_name": "com.example.catjam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265998737860-kb45o4er25n9shitc1a6iv6brand1lvb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWX-NmQJfklGmvUKeqVFSJ2D9Mr7MP3sE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265998737860-kb45o4er25n9shitc1a6iv6brand1lvb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
