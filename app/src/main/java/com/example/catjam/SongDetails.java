@@ -2,12 +2,20 @@ package com.example.catjam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class SongDetails extends AppCompatActivity {
     ImageView coverImage;
@@ -26,7 +34,17 @@ public class SongDetails extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            coverImage.setImageResource(extras.getInt(PlaylistsDetails.EXTRA_COVER));
+
+            // if statement where we determine whether the cover image is loaded from
+            // local storage of the app, or from the internet
+
+            if(extras.getString(PlaylistsDetails.EXTRA_COVER_URL).isEmpty()){
+                coverImage.setImageResource(extras.getInt(PlaylistsDetails.EXTRA_COVER));
+            }
+            else{
+                Glide.with(this).load(extras.getString(PlaylistsDetails.EXTRA_COVER_URL)).into(coverImage);
+            }
+
             songName.setText(extras.getString(PlaylistsDetails.EXTRA_SONG_NAME));
             artistName.setText(extras.getString(PlaylistsDetails.EXTRA_ARTIST_NAME));
 

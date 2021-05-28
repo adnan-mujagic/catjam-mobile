@@ -15,6 +15,7 @@ import java.util.List;
 
 public class PlaylistsDetails extends AppCompatActivity {
     public static final String EXTRA_COVER = "EXTRA_COVER";
+    public static final String EXTRA_COVER_URL = "EXTRA_COVER_URL";
     public static final String EXTRA_SONG_NAME = "EXTRA_SONG_NAME";
     public static final String EXTRA_ARTIST_NAME = "EXTRA_ARTIST_NAME";
 
@@ -49,6 +50,7 @@ public class PlaylistsDetails extends AppCompatActivity {
 
 
                     intent.putExtra(EXTRA_COVER, song.getImageResId());
+                    intent.putExtra(EXTRA_COVER_URL, song.getCoverUrl());
                     intent.putExtra(EXTRA_SONG_NAME, song.getName());
                     intent.putExtra(EXTRA_ARTIST_NAME, song.getArtist());
 
@@ -65,7 +67,7 @@ public class PlaylistsDetails extends AppCompatActivity {
     // to pass the ArrayList of songs from the PlaylistFragment
     private ArrayList<Song> getSongs(){
         ArrayList<Song> songs = new ArrayList<Song>();
-        songs.add(new Song(R.drawable.playlist1, "Song1", "Amar"));
+        songs.add(new Song("https://upload.wikimedia.org/wikipedia/bs/b/b2/Metallica_-_Master_of_Puppets_cover.jpg", "Song1", "Amar"));
         songs.add(new Song(R.drawable.playlist1, "Song2", "Ado"));
         songs.add(new Song(R.drawable.playlist3, "Song3", "JLopez"));
 
