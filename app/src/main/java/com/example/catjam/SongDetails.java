@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ public class SongDetails extends AppCompatActivity {
     ImageView coverImage;
     TextView songName, artistName;
     Button playButton;
+    private String songUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,18 +46,28 @@ public class SongDetails extends AppCompatActivity {
             else{
                 Glide.with(this).load(extras.getString(PlaylistsDetails.EXTRA_COVER_URL)).into(coverImage);
             }
-
+            songUrl = extras.getString(PlaylistsDetails.EXTRA_SONG_URL);
             songName.setText(extras.getString(PlaylistsDetails.EXTRA_SONG_NAME));
             artistName.setText(extras.getString(PlaylistsDetails.EXTRA_ARTIST_NAME));
-
-
         }
     }
 
     // TODO: 28. 5. 2021. make this function for play button
-    /*public static onButtonPlay(View view){
-
-    }*/
+    public void playFile(View view){
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        try{
+            mediaPlayer.setDataSource(songUrl);
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mp.start();
+                }
+            });
+            mediaPlayer.prepareAsync();
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
 
 }

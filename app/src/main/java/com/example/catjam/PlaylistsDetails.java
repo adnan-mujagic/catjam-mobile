@@ -24,6 +24,7 @@ public class PlaylistsDetails extends AppCompatActivity {
     public static final String EXTRA_COVER_URL = "EXTRA_COVER_URL";
     public static final String EXTRA_SONG_NAME = "EXTRA_SONG_NAME";
     public static final String EXTRA_ARTIST_NAME = "EXTRA_ARTIST_NAME";
+    public static final String EXTRA_SONG_URL = "EXTRA_SONG_URL";
 
     ImageView playlistImage;
     TextView playlistTitle, playlistDescription;
@@ -58,6 +59,7 @@ public class PlaylistsDetails extends AppCompatActivity {
                     intent.putExtra(EXTRA_COVER_URL, song.getCoverUrl());
                     intent.putExtra(EXTRA_SONG_NAME, song.getName());
                     intent.putExtra(EXTRA_ARTIST_NAME, song.getArtist());
+                    intent.putExtra(EXTRA_SONG_URL, song.getSongUrl());
 
                     // TODO: 27. 5. 2021. put song array into intent here
                     startActivity(intent);

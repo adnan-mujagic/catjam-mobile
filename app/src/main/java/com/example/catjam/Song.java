@@ -6,23 +6,34 @@ public class Song {
     private String name;
     private String artist;
     private String duration = "0:00";
+    private String songUrl = "";
     // private String lyrics = null;
 
 
-    public Song(int imageResId, String name, String artist) {
+    public Song(int imageResId, String name, String artist, String songUrl) {
         this.imageResId = imageResId;
         this.name = name;
         this.artist = artist;
+        this.songUrl = songUrl;
     }
 
-    public Song(String coverUrl, String name, String artist) {
+    public Song(String coverUrl, String name, String artist, String songUrl) {
         this.coverUrl = coverUrl;
         this.name = name;
         this.artist = artist;
+        this.songUrl = songUrl;
     }
 
     public Song(){
 
+    }
+
+    public String getSongUrl() {
+        return songUrl;
+    }
+
+    public void setSongUrl(String songUrl) {
+        this.songUrl = songUrl;
     }
 
     public String getDuration() {
