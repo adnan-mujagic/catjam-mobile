@@ -4,14 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PlaylistsDetails extends AppCompatActivity {
     public static final String EXTRA_COVER = "EXTRA_COVER";
@@ -39,8 +45,7 @@ public class PlaylistsDetails extends AppCompatActivity {
             playlistImage.setImageResource(extras.getInt(PlaylistsFragment.EXTRA_IMAGE));
             playlistDescription.setText(extras.getString(PlaylistsFragment.EXTRA_DESCRIPTION));
 
-            SongListViewAdapter songListViewAdapter = new SongListViewAdapter(getSongs(), getBaseContext());
-            listView.setAdapter(songListViewAdapter);
+            getSongs();
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -65,12 +70,32 @@ public class PlaylistsDetails extends AppCompatActivity {
 
     // This is temporary, need to implement Parcelable interface
     // to pass the ArrayList of songs from the PlaylistFragment
-    private ArrayList<Song> getSongs(){
+    /*private ArrayList<Song> getSongs(){
         ArrayList<Song> songs = new ArrayList<Song>();
         songs.add(new Song("https://upload.wikimedia.org/wikipedia/bs/b/b2/Metallica_-_Master_of_Puppets_cover.jpg", "Song1", "Amar"));
         songs.add(new Song(R.drawable.playlist1, "Song2", "Ado"));
         songs.add(new Song(R.drawable.playlist3, "Song3", "JLopez"));
 
         return songs;
+    }*/
+
+    public void getSongs(){
+        Call<List<Song>> listCall = RetrofitProvider.getInstance().getAllSongs();
+
+        listCall.enqueue(new Callback<List<Song>>() {
+            @Override
+            public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                if(response.isSuccessful()){
+                    List<Song> songs = response.body();
+                    SongListViewAdapter adapter = new SongListViewAdapter(songs, PlaylistsDetails.this);
+                    listView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Song>> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 }

@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "265998737860",
-    "project_id": "catjam-5dcd8",
-    "storage_bucket": "catjam-5dcd8.appspot.com"
+    "project_number": "654662036789",
+    "firebase_url": "https://catjam-48c40-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "catjam-48c40",
+    "storage_bucket": "catjam-48c40.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:265998737860:android:1346193e8520dfb8a14491",
+        "mobilesdk_app_id": "1:654662036789:android:73ad0659f5ab6afa2cf07c",
         "android_client_info": {
           "package_name": "com.example.catjam"
         }
       },
       "oauth_client": [
         {
-          "client_id": "265998737860-kb45o4er25n9shitc1a6iv6brand1lvb.apps.googleusercontent.com",
+          "client_id": "654662036789-saearugdar6rdqm5jkj1r7u67v5grala.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBWX-NmQJfklGmvUKeqVFSJ2D9Mr7MP3sE"
+          "current_key": "AIzaSyAC7FHzpztXajJr1pq-nTis99cF9VcHlho"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "265998737860-kb45o4er25n9shitc1a6iv6brand1lvb.apps.googleusercontent.com",
+              "client_id": "654662036789-saearugdar6rdqm5jkj1r7u67v5grala.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
